@@ -53,12 +53,6 @@ html:has(#loadingScreen) {
   opacity: 0;
 }
 
-#loadingScreen #loadingScreenAnimX,
-#loadingScreen #loadingScreenAnimY {
-  animation: var(--animation),
-    10s var(--fade-in-delay) cubic-bezier(0.75, 0, 0.55, 0.95) forwards fade-in-details
-}
-
 #loadingScreen div.textOverlay {
   position: absolute; 
   top: 0;
@@ -143,6 +137,12 @@ animating loading screen text */
   --fade-in-delay: 1.5s;
 }
 
+#loadingScreen #loadingScreenAnimX,
+#loadingScreen #loadingScreenAnimY {
+  animation: var(--animation),
+    10s var(--fade-in-delay) cubic-bezier(0.75, 0, 0.55, 0.95) forwards fade-in-details
+}
+
 #loadingScreenAnimX {
   --name: horizontal;
   --duration: var(--animation-duration);
@@ -162,37 +162,11 @@ animating loading screen text */
 @keyframes horizontal {
   from { 
     transform: translateX(calc(-1 * var(--x-offset))); 
-/* 
-    text-shadow: 
-      5px 4px 0px rgba(255, 255, 255, 0.6),
-      10px 4px 0px rgba(255, 255, 255, 0.4),
-      15px 4px 0px rgba(255, 255, 255, 0.2);
-  }
-  to { 
-    transform: translateX(var(--x-offset)); 
-
-    text-shadow: 
-      -5px 4px 0px rgba(255, 255, 255, 0.6),
-      -10px 4px 0px rgba(255, 255, 255, 0.4),
-      -15px 4px 0px rgba(255, 255, 255, 0.2); */
   }
 }
 
 @keyframes vertical {
   from { 
     transform: translateY(calc(-1 * var(--y-offset))); 
-/* 
-    text-shadow: 
-      0px 16px 0px rgba(255, 255, 255, 0.6),
-      0px 24px 0px rgba(255, 255, 255, 0.4),
-      0px 32px 0px rgba(255, 255, 255, 0.2);
-  }
-  to { 
-    transform: translateY(var(--y-offset)); 
-
-    text-shadow: 
-      0px -4px 0px rgba(255, 255, 255, 0.6),
-      0px -6px 0px rgba(255, 255, 255, 0.4),
-      0px -8px 0px rgba(255, 255, 255, 0.2); */
   }
 }
