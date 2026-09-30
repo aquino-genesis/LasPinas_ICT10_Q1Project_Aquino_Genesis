@@ -18,6 +18,44 @@
     </head>
 
     <body>
+        <!-- PYSCRIPT LOADING BUFFER -->
+        <div id="loadingScreen">
+            <div id="loadingScreenAnimY" style="animation-duration: 3s;">
+                <div id="loadingScreenAnimX">
+                    <img src="../images/graceGod.png" alt="God">
+                </div>
+            </div>
+
+            <div style="position: relative;">
+                <div style="animation-delay: -0.9s" id="loadingScreenAnimY">
+                    <div style="animation-delay: -0.9s" id="loadingScreenAnimX">
+                        <p>it's almost time.</p>
+                    </div>
+                </div>
+
+                <div style="animation-delay: -0.6s; opacity: 0.7;" class="textOverlay" id="loadingScreenAnimY">
+                    <div style="animation-delay: -0.6s;" id="loadingScreenAnimX">
+                        <p>it's almost time.</p>
+                    </div>
+                </div>
+
+                <div style="animation-delay: -0.3s; opacity: 0.5;" class="textOverlay" id="loadingScreenAnimY">
+                    <div style="animation-delay: -0.3s;" id="loadingScreenAnimX">
+                        <p>it's almost time.</p>
+                    </div>
+                </div>
+
+                <div style="opacity: 0.3;" class="textOverlay" id="loadingScreenAnimY">
+                    <div id="loadingScreenAnimX">
+                        <p>it's almost time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../scripts/loading.js"></script>
+
+        <!-- MAIN -->
         <div class="d-flex justify-content-center align-items-center min-vh-100 text-center" id="coverElement">
             <div class="border border-5 card w-50 h-100 p-5" style="border-style: double !important;">
                 <a href="../index.html" class="text-start text-danger text-decoration-none">Back</a>
@@ -52,10 +90,10 @@
                 <button py-click="generate" class="mt-5 mx-5">Generate SKU</button>
 
                 <div class="mt-3">
-                    <p  id="resultDisplay"></p>
+                    <p id="resultDisplay"></p>
                 </div>
 
-                <script type="py" src="../python/helper.py"></script>
+                <script type="py" src="../scripts/helper.py"></script>
 
                 <script type="py">
                     from pyscript import document, display

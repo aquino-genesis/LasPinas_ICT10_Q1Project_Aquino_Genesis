@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Maze&display=swap');
 
+@font-face {
+  font-family: "SimSun";
+  src: url("fonts/SimSun.ttf");
+}
+
 /* BACKGROUND ELEMENTS */
+
 body, html {
     background-image: url(images/background.jpg);
     background-size: cover;
@@ -8,8 +14,68 @@ body, html {
     font-size: x-large;
 }
 
+/* hide scrollbar while loading */
+html:has(#loadingScreen) {
+  overflow-y: hidden;
+}
+
 #coverElement {
     backdrop-filter: blur(7px);
+}
+
+/* LOADING SCREEN */
+#loadingScreen {
+  background-color: black;
+  overflow-y: hidden;
+  user-select: none;
+  cursor: progress;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+  
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+}
+
+#loadingScreen.flash {
+  background-color: white;
+}
+
+#loadingScreen.flash * {
+  opacity: 0;
+}
+
+#loadingScreen #loadingScreenAnimX,
+#loadingScreen #loadingScreenAnimY {
+  animation: var(--animation),
+    10s var(--fade-in-delay) cubic-bezier(0.75, 0, 0.55, 0.95) forwards fade-in-details
+}
+
+#loadingScreen div.textOverlay {
+  position: absolute; 
+  top: 0;
+  left: 0;
+}
+
+#loadingScreen p {
+  color: white;
+  font-size: large;
+  font-family: "SimSun";
+}
+
+#loadingScreen img {
+  width: 7vw;
+  height: auto;
+
+  margin-bottom: 1vh;
 }
 
 /* INPUT ELEMENTS */
@@ -66,4 +132,67 @@ span.animate > img {
   50% { transform: translateY(-6px); }
   75% { transform: translateY(3px); }
   100% { transform: translateY(0px); }
+}
+
+/* internal variables for dynamically
+animating loading screen text */
+:root {
+  --x-offset: 50px;
+  --y-offset: 15px;
+  --animation-duration: 2s;
+  --fade-in-delay: 1.5s;
+}
+
+#loadingScreenAnimX {
+  --name: horizontal;
+  --duration: var(--animation-duration);
+  --delay: calc(-0.25 * var(--animation-duration));
+}
+
+#loadingScreenAnimY {
+  --name: vertical;
+  --duration: calc(0.5 * var(--animation-duration));
+  --delay: 0s;
+}
+
+#loadingScreenAnimX, #loadingScreenAnimY {
+  --animation: var(--duration) ease-in-out var(--delay) alternate infinite var(--name);
+}
+
+@keyframes horizontal {
+  from { 
+    transform: translateX(calc(-1 * var(--x-offset))); 
+/* 
+    text-shadow: 
+      5px 4px 0px rgba(255, 255, 255, 0.6),
+      10px 4px 0px rgba(255, 255, 255, 0.4),
+      15px 4px 0px rgba(255, 255, 255, 0.2);
+  }
+  to { 
+    transform: translateX(var(--x-offset)); 
+
+    text-shadow: 
+      -5px 4px 0px rgba(255, 255, 255, 0.6),
+      -10px 4px 0px rgba(255, 255, 255, 0.4),
+      -15px 4px 0px rgba(255, 255, 255, 0.2); */
+  }
+}
+
+@keyframes vertical {
+  from { 
+    transform: translateY(calc(-1 * var(--y-offset))); 
+/* 
+    text-shadow: 
+      0px 16px 0px rgba(255, 255, 255, 0.6),
+      0px 24px 0px rgba(255, 255, 255, 0.4),
+      0px 32px 0px rgba(255, 255, 255, 0.2);
+  }
+  to { 
+    transform: translateY(var(--y-offset)); 
+
+    text-shadow: 
+      0px -4px 0px rgba(255, 255, 255, 0.6),
+      0px -6px 0px rgba(255, 255, 255, 0.4),
+      0px -8px 0px rgba(255, 255, 255, 0.2); */
+  }
 }
