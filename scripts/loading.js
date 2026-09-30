@@ -1,19 +1,17 @@
 document.addEventListener('py:ready', () => {
     const loader = document.getElementById('loadingScreen');
     
-    setTimeout(() => {
-        loader.classList.add("flash");
-    }, 500); 
+    loader.classList.add("flash");
 
     setTimeout(() => {
         loader.classList.remove("flash");
-    }, 600)
+    }, 100)
 
     setTimeout(() => {
         loader.classList.add("flash");
-    }, 700)
+    }, 200)
 
     setTimeout(() => {
         loader.remove();
-    }, 800)
+    }, 300)
 });
