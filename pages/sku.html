@@ -96,11 +96,22 @@
                 <script type="py" src="../scripts/helper.py"></script>
 
                 <script type="py">
+                    import re
+                    import string
                     from pyscript import document, display
 
                     result = ""
 
                     # === HELPER FUNCTIONS ===
+
+                    # Text Tag Stripper
+                    def cleanText(text):
+                        text = text.lower()
+                        text = re.sub(r'<[^>]+>', '', text)
+                        text = re.sub(r'https?://\s+|www\.\s+', '', text)
+                        text = text.translate(str.maketrans('', '', string.punctuation))
+                        text = " ".join(text.split())
+                        return text
 
                     # SKU String Generator
                     def generateAnswer():
