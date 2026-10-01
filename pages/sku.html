@@ -116,7 +116,7 @@
                             return generateError("Product name cannot be empty.")
 
                         # error if product amount is less than 0
-                        prodQuantity = int(document.getElementById("Quantity").value)
+                        prodQuantity = int(float(document.getElementById("Quantity").value))
                         if prodQuantity < 0:
                             return generateError("Product quantity cannot be less than 0")
 
