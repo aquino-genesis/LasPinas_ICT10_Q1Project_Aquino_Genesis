@@ -1,6 +1,7 @@
 import re
 import string
 
+# Text Tag Stripper
 def cleanText(text):
     text = text.lower()
     text = re.sub(r'<[^>]+>', '', text)
