@@ -111,7 +111,7 @@
                             return generateError("Product category cannot be \"none.\"")
 
                         # error if no product name is written
-                        prodName = document.getElementById("Product").value
+                        prodName = cleanText(document.getElementById("Product").value)
                         if prodName == "":
                             return generateError("Product name cannot be empty.")
 
@@ -128,7 +128,7 @@
 
                     # String display
                     def generate(event):
-                        document.getElementById("resultDisplay").textContent = generateAnswer()
+                        document.getElementById("resultDisplay").innerHTML = generateAnswer()
                 </script>
 
                 <!-- Bootstrap JavaScript -->
