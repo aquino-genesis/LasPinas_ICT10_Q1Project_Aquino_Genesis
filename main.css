@@ -14,6 +14,11 @@ body, html {
     font-size: x-large;
 }
 
+p {
+  font-family: "SimSun", system-ui !important;
+  font-size: large;
+}
+
 /* hide scrollbar while loading */
 html:has(#loadingScreen) {
   overflow-y: hidden;
@@ -105,6 +110,7 @@ span.animate > h3,
 span.animate > h4,
 span.animate > h5,
 span.animate > h6,
+span.animate > p,
 span.animate > img {
     display: inline-block;
     animation: graceSwayY 9s ease-in-out infinite;
