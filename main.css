@@ -14,11 +14,6 @@ body, html {
     font-size: x-large;
 }
 
-p {
-  font-family: "SimSun", system-ui !important;
-  font-size: large;
-}
-
 /* hide scrollbar while loading */
 html:has(#loadingScreen) {
   overflow-y: hidden;
